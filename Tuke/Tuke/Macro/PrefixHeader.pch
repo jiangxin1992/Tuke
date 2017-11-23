@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  YunejianBuyer
+//
+//  Created by yyj on 2017/8/2.
+//  Copyright © 2017年 Apple. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import "Header.h"
+#import "CommonMacro.h"
+#endif
+
+#pragma mark - 尺寸相关
+#define SCREEN_HEIGHT [[UIScreen mainScreen]bounds].size.height
+#define SCREEN_WIDTH [[UIScreen mainScreen]bounds].size.width
+#define ORIGINAL_MAX_WIDTH 640.0f
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define BLOCK_EXEC(block, ...)      if (block) { block(__VA_ARGS__); };//用宏定义检测block是否可用!
+
+#define FormatString(args...)       [NSString stringWithFormat:args]//stringWithFormat
+#define GET_KEY_PATH(obj, PATH)     FormatString(@"%s", ((void)obj.PATH, # PATH))//KVO
+
+#endif /* PrefixHeader_pch */
+

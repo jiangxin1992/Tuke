@@ -1,0 +1,1 @@
+../../../SFPSDWriter/Library/SFPSDWriter/Layer Classes/Effect Layer Information Classes/SFPSDDropShadowEffectLayerInformation.h
